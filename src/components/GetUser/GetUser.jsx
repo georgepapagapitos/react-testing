@@ -7,7 +7,7 @@ export default function GetUser() {
 
   return (
     <div>
-      {user.isError && <p>Could not load user.</p>}
+      {user.isError && <p>Could not load user...</p>}
       {user.isSuccess && <p>{user.data.name}</p>}
     </div>
   );
