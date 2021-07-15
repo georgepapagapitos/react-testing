@@ -5,8 +5,6 @@ export default function GetUser() {
 
   const user = useUser(5);
 
-  console.log(user);
-
   return (
     <div>
       {user.isError && <p>Could not load user.</p>}
