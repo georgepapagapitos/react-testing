@@ -1,10 +1,10 @@
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-import App from './App';
+import Account from './components/Account';
 import { AccountProvider } from './context/accountContext';
 
 test('if $500 is sent, the account balance is updated', async () => {
-  render(<AccountProvider><App /></AccountProvider>);
+  render(<AccountProvider><Account /></AccountProvider>);
 
   userEvent.type(screen.getByRole('spinbutton', { name: /transfer amount:/i }), '500');
   userEvent.click(screen.getByRole('button', { name: /send/i }));
@@ -14,7 +14,7 @@ test('if $500 is sent, the account balance is updated', async () => {
 });
 
 test('if transferToPerson name prop is passed, render the name', () => {
-  render(<AccountProvider><App transferToPerson="Jimmy John" /></AccountProvider>);
+  render(<AccountProvider><Account transferToPerson="Jimmy John" /></AccountProvider>);
 
   expect(screen.getByText(/send money to jimmy john/i)).toBeInTheDocument();
 });

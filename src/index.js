@@ -8,7 +8,7 @@ import { AccountProvider } from './context/accountContext';
 ReactDOM.render(
   <React.StrictMode>
     <AccountProvider>
-      <App transferToPerson="John Doe" />
+      <App />
     </AccountProvider>
   </React.StrictMode>,
   document.getElementById('root')
