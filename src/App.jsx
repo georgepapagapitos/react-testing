@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-export default function App() {
+export default function App({ transferToPerson }) {
 
   const [accountBalance, setAccountBalance] = useState(5000);
   const [transferAmount, setTransferAmount] = useState(0);
@@ -11,16 +11,17 @@ export default function App() {
     setTimeout(() => {
       setAccountBalance((prev) => prev - transferAmount);
       setTransferAmount(0);
-    }, 2000);
+    }, 200);
   };
 
   return (
     <>
       <h1>Account</h1>
-      <p>Current account balance: ${accountBalance}</p>
-      <p>Send money from your account:</p>
+      <p>Current account balance: {accountBalance}</p>
+      <p>Send money to {transferToPerson}</p>
       <form onSubmit={onSubmit}>
-        <input min="0" type="number" value={transferAmount} onChange={(e) => setTransferAmount(e.target.value)} />
+        <label htmlFor="transferAmount">Transfer Amount:</label>
+        <input id="transferAmount" min="0" type="number" value={transferAmount} onChange={(e) => setTransferAmount(e.target.value)} />
         <button type="submit">Send</button>
       </form>
     </>
